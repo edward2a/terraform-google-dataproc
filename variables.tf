@@ -93,6 +93,15 @@ variable "default_override_properties" {
     }
 }
 
+variable "zone" {
+    description = "The compute zone (e.g. us-central1-a) for the cluster."
+    default = ""
+}
+
+variable "subnetwork" {
+    description = "Specifies the subnet that the cluster will be part of."
+}
+
 variable "image_version" {
     description = "The Cloud Dataproc image version to use for the clustere"
     default     = "1.2"
