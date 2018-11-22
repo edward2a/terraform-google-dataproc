@@ -15,11 +15,6 @@ variable "labels" {
     default     = {}
 }
 
-variable "delete_autogen_bucket" {
-    description = "If this is set to true, upon destroying the cluster, if no explicit staging_bucket was specified (i.e. an auto generated bucket was relied upon) then this auto generated bucket will also be deleted as part of the cluster destroy"
-    default     = "false"
-}
-
 variable "staging_bucket" {
     description = "The Cloud Storage staging bucket used to stage files, such as Hadoop jars, between client machines and the cluster"
     default =   ""
