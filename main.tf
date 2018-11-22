@@ -42,16 +42,13 @@ resource "google_dataproc_cluster" "this" {
         # Override or set some custom properties
         software_config {
             image_version       = "${var.image_version}"
-            override_properties = {
-                #TODO
-                #"dataproc:dataproc.allow.zero.workers" = "true"
-            }
+            override_properties = "${merge(var.default_override_properties, var.override_properties)}"
         }
 
         gce_cluster_config {
             zone    = "${data.google_compute_zones.available.names[0]}"
             #network = "${google_compute_network.dataproc_network.name}"
-            
+
             #TODO
             #tags    = ["foo", "bar"]
         }

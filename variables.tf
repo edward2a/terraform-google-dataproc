@@ -81,6 +81,18 @@ variable "preemptible_worker_boot_disk_type" {
     default     = "pd-standard"
 }*/
 
+variable "override_properties" {
+    description = "Specifies configuration properties for installed packages, such as Hadoop and Spark."
+    default = {}
+}
+
+variable "default_override_properties" {
+    description = "Module defaults for override_properties"
+    default = {
+      "dataproc:dataproc.allow.zero.workers" = "true"
+    }
+}
+
 variable "image_version" {
     description = "The Cloud Dataproc image version to use for the clustere"
     default     = "1.2"
