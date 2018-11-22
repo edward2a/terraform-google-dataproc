@@ -8,7 +8,7 @@ resource "google_dataproc_cluster" "this" {
     labels  = "${var.labels}"
 
     cluster_config {
-        #TODO - staging_bucket
+
         staging_bucket        = "${var.staging_bucket}"
 
         master_config {
