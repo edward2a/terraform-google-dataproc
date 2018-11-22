@@ -27,7 +27,7 @@ variable "master_num_instances" {
 
 variable "master_machine_type" {
     description = "The name of a Google Compute Engine machine type to create for the master"
-    default     = "n1-standard-4"
+    default     = "n1-standard-1"
 }
 
 variable "master_boot_disk_size_gb" {
@@ -42,12 +42,12 @@ variable "master_boot_disk_type" {
 
 variable "worker_num_instances" {
     description = "Specifies the number of worker nodes to create"
-    default     = 2
+    default     = 0
 }
 
 variable "worker_machine_type" {
     description = "The name of a Google Compute Engine machine type to create for the worker nodes"
-    default     = "n1-standard-4"
+    default     = "n1-standard-1"
 }
 
 variable "worker_boot_disk_size_gb" {
