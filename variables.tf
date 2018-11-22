@@ -35,6 +35,11 @@ variable "master_boot_disk_size_gb" {
     default     = 10
 }
 
+variable "master_boot_disk_type" {
+    description = "The type of the boot disk. The value must be pd-standard or pd-ssd"
+    default = "pd-standard"
+}
+
 variable "worker_num_instances" {
     description = "Specifies the number of worker nodes to create"
     default     = 2
@@ -50,6 +55,11 @@ variable "worker_boot_disk_size_gb" {
     default     = 10
 }
 
+variable "worker_boot_disk_type" {
+    description = "The type of the boot disk. The value must be pd-standard or pd-ssd"
+    default     = "pd-standard"
+}
+
 variable "worker_num_local_ssds" {
     description = "The amount of local SSD disks that will be attached to each worker cluster node"
     default     = 0
@@ -59,6 +69,17 @@ variable "preemptible_num_instances" {
     description = "Specifies the number of preemptible nodes to create"
     default     = 0
 }
+
+variable "preemptible_worker_boot_disk_size_gb" {
+    description = "Size of the primary disk attached to each worker node, specified in GB"
+    default     = 10
+}
+
+/* not yet supported
+variable "preemptible_worker_boot_disk_type" {
+    description = "The type of the boot disk. The value must be pd-standard or pd-ssd"
+    default     = "pd-standard"
+}*/
 
 variable "image_version" {
     description = "The Cloud Dataproc image version to use for the clustere"
