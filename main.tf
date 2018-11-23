@@ -1,4 +1,15 @@
+locals {
+  cluster_availability_mode = {
+    ha = 3
+    single = 1
+  }
+}
+
 resource "google_dataproc_cluster" "this" {
+    timeouts {
+      create = "20m"
+    }
+  
     name    = "${var.cluster_name}"
     project = "${var.project_id}"
     region  = "${var.region_name}"
@@ -10,7 +21,7 @@ resource "google_dataproc_cluster" "this" {
         staging_bucket        = "${var.staging_bucket}"
 
         master_config {
-            num_instances     = "${var.master_num_instances}"
+            num_instances     = "${local.cluster_availability_mode[var.cluster_availability_mode]}"
             machine_type      = "${var.master_machine_type}"
             disk_config {
                 boot_disk_size_gb = "${var.master_boot_disk_size_gb}"
@@ -37,7 +48,8 @@ resource "google_dataproc_cluster" "this" {
             }
         }
 
-        # Override or set some custom properties
+
+        /* Override or set some custom properties */
         software_config {
             image_version       = "${var.image_version}"
             override_properties = "${merge(var.default_override_properties, var.override_properties)}"
@@ -52,4 +64,5 @@ resource "google_dataproc_cluster" "this" {
         }
 
     }
+
 }
