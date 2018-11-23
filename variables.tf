@@ -102,6 +102,11 @@ variable "subnetwork" {
     description = "Specifies the subnet that the cluster will be part of."
 }
 
+variable "internal_ip_only" {
+    description = "If set to true, all instances in the cluster will only have internal IP addresses."
+    default = "false"
+}
+
 variable "image_version" {
     description = "The Cloud Dataproc image version to use for the clustere. Use a specific version to avoid cluster re-creation on config changes (ie. 1.3.16-deb9)"
     default     = ""

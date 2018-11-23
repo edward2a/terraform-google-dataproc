@@ -9,7 +9,7 @@ resource "google_dataproc_cluster" "this" {
     timeouts {
       create = "20m"
     }
-  
+
     name    = "${var.cluster_name}"
     project = "${var.project_id}"
     region  = "${var.region_name}"
@@ -58,6 +58,7 @@ resource "google_dataproc_cluster" "this" {
         gce_cluster_config {
             zone    = "${var.zone}"
             subnetwork = "${var.subnetwork}"
+            internal_ip_only = "${var.internal_ip_only}"
 
             #TODO
             #tags    = ["foo", "bar"]
