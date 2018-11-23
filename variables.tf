@@ -101,6 +101,12 @@ variable "internal_ip_only" {
     default = "false"
 }
 
+variable "metadata" {
+    description = "A map of the Compute Engine metadata entries to add to all instances"
+    type = "map"
+    default = {}
+}
+
 variable "tags" {
     description = "Specifies a list of tags to apply to the instances for identifying the instances to which network firewall rules will apply"
     type = "list"

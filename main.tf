@@ -65,6 +65,7 @@ resource "google_dataproc_cluster" "this" {
             zone    = "${var.zone}"
             subnetwork = "${var.subnetwork}"
             internal_ip_only = "${var.internal_ip_only}"
+            metadata = "${var.metadata}"
             tags    = "${var.tags}"
         }
 
