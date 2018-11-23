@@ -1,8 +1,14 @@
 locals {
+
   cluster_availability_mode = {
     ha = 3
     single = 1
   }
+
+  default_override_properties = {
+    "dataproc:dataproc.allow.zero.workers" = "true"
+  }
+
 }
 
 resource "google_dataproc_cluster" "this" {
@@ -52,7 +58,7 @@ resource "google_dataproc_cluster" "this" {
         /* Override or set some custom properties */
         software_config {
             image_version       = "${var.image_version}"
-            override_properties = "${merge(var.default_override_properties, var.override_properties)}"
+            override_properties = "${merge(local.default_override_properties, var.override_properties)}"
         }
 
         gce_cluster_config {

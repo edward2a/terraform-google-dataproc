@@ -86,13 +86,6 @@ variable "override_properties" {
     default = {}
 }
 
-variable "default_override_properties" {
-    description = "Module defaults for override_properties"
-    default = {
-      "dataproc:dataproc.allow.zero.workers" = "true"
-    }
-}
-
 variable "zone" {
     description = "The compute zone (e.g. us-central1-a) for the cluster."
     default = ""
