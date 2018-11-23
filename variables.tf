@@ -20,9 +20,9 @@ variable "staging_bucket" {
     default =   ""
 }
 
-variable "master_num_instances" {
-    description = "Specifies the number of master nodes to create"
-    default     = 1
+variable "cluster_availability_mode" {
+    description = "Specifies if cluster is HA (replaces num_instances; values: single, ha)"
+    default     = "single"
 }
 
 variable "master_machine_type" {
@@ -32,7 +32,7 @@ variable "master_machine_type" {
 
 variable "master_boot_disk_size_gb" {
     description = "Size of the primary disk attached to each node, specified in GB"
-    default     = 10
+    default     = 20
 }
 
 variable "master_boot_disk_type" {
@@ -42,7 +42,7 @@ variable "master_boot_disk_type" {
 
 variable "worker_num_instances" {
     description = "Specifies the number of worker nodes to create"
-    default     = 0
+    default     = 2
 }
 
 variable "worker_machine_type" {
@@ -52,7 +52,7 @@ variable "worker_machine_type" {
 
 variable "worker_boot_disk_size_gb" {
     description = "Size of the primary disk attached to each worker node, specified in GB"
-    default     = 10
+    default     = 20
 }
 
 variable "worker_boot_disk_type" {
@@ -72,7 +72,7 @@ variable "preemptible_num_instances" {
 
 variable "preemptible_worker_boot_disk_size_gb" {
     description = "Size of the primary disk attached to each worker node, specified in GB"
-    default     = 10
+    default     = 20
 }
 
 /* not yet supported
@@ -103,6 +103,6 @@ variable "subnetwork" {
 }
 
 variable "image_version" {
-    description = "The Cloud Dataproc image version to use for the clustere"
-    default     = "1.2"
+    description = "The Cloud Dataproc image version to use for the clustere. Use a specific version to avoid cluster re-creation on config changes (ie. 1.3.16-deb9)"
+    default     = ""
 }
