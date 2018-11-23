@@ -1,0 +1,10 @@
+# vim
+*.swp
+
+# tf
+.terraform
+provider.tf
+vars*.json
+plan.log
+terraform.tfstate*
+.terraform.tfstate*
