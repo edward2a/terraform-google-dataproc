@@ -12,7 +12,8 @@ variable "region_name" {
 
 variable "labels" {
     description = "The list of labels (key/value pairs) to be applied to instances in the cluster"
-    default     = {}
+    type = "map"
+    default = {}
 }
 
 variable "staging_bucket" {
@@ -98,6 +99,12 @@ variable "subnetwork" {
 variable "internal_ip_only" {
     description = "If set to true, all instances in the cluster will only have internal IP addresses."
     default = "false"
+}
+
+variable "tags" {
+    description = "Specifies a list of tags to apply to the instances for identifying the instances to which network firewall rules will apply"
+    type = "list"
+    default = []
 }
 
 variable "image_version" {
