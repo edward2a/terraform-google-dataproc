@@ -8,3 +8,6 @@ vars*.json
 plan.log
 terraform.tfstate*
 .terraform.tfstate*
+
+# test dir
+tests/
