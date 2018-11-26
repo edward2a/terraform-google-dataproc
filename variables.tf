@@ -113,6 +113,12 @@ variable "tags" {
     default = []
 }
 
+variable "initialization_actions" {
+    description = "A list of maps containing 'script' and 'timeout_sec' keys for each initialization action item"
+    type = "list"
+    default = []
+}
+
 variable "image_version" {
     description = "The Cloud Dataproc image version to use for the clustere. Use a specific version to avoid cluster re-creation on config changes (ie. 1.3.16-deb9)"
     default     = ""

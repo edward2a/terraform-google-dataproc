@@ -69,6 +69,8 @@ resource "google_dataproc_cluster" "this" {
             tags    = "${var.tags}"
         }
 
+        initialization_action = "${var.initialization_actions}"
+
     }
 
 }
